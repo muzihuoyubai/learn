@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>text align</title>
+</head>
+<style>
+* {
+	margin:0;
+	padding:0;
+}
+
+div {
+	width:180px;
+	border:1px solid green;
+	float:left;
+	margin-left:20px;
+}
+
+span {
+	background-color:silver;
+}
+
+.text_align_left{
+	text-align: left;
+}
+
+.text_align_right{
+	text-align: right;
+}
+
+.text_align_center{
+	text-align: center;
+}
+
+.text_align_justify{
+	text-align: justify;
+}
+
+</style>
+<body>
+<div class="text_align_left">
+	<span>For the left-aligned paragraph, the lines are all pushed flush against the left content edge of the paragraph, and each line ends wherever the line is broken. </span>
+</div>
+<div class="text_align_right">
+	<span>The reverse is true for the right-aligned paragraph.</span>
+</div>
+<div class="text_align_center"> 
+	<span>For the centered paragraph, the centers of the lines are aligned with the center of the paragraph.</span>
+</div>
+<div class="text_align_justify">
+	<span>In the last case, where the value of text-align is justify, each line is forced to be as wide as the paragraph's content area, so that the line's edges touch the content edges of the paragraph.</span>
+</div>
+</body>
+<script>
+</script>
+</html>

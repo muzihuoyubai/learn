@@ -1,0 +1,15 @@
+* {margin: 0; padding: 0;}
+a {text-decoration: none;}
+li {list-style-type: none;}
+table {
+	border:1px solid red; 
+	margin:200px auto;
+	border-spacing:0;
+	}
+table td{
+	width:20px;
+	height:20px; 
+	line-height:16px;
+	} 
+
+

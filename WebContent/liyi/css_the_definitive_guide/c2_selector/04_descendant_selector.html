@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>逗号分隔的后代选择器</title>
+<style type="text/css" media="screen">
+p b, span b{color: red;}
+p, span b {background:silver;}
+h1 , p b {border:1px solid green;}
+h1 + p {font-style: italic;}
+</style>
+</head>
+<body>
+<p><b>p标签的子元素b</b></p>
+<span><b>span标签的子元素b</b></span>
+<p>h1标签的上一个同辈p元素</p>
+<h1><b>h1标签的子元素b</b></h1>
+<p>h1标签的直接同辈p元素</p>
+<p>h1标签的第二个同辈p元素</p>
+</body>
+</html>

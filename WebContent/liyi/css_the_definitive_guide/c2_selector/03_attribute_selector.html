@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试descendant selector中带有逗号的情况</title>
+<style type="text/css" media="screen">
+[name] {color:red;}
+[name][title] {font-weight: bold;}
+a[href="http://www.css-discuss.org/about.html"] {font-size: 1.5em;}
+a[href="http://www.w3.org/"][title="W3C Home"] {font-style: italic;}
+p[title~="with"] {border-left: 14px solid green;}
+[title^="sec"] {color:purple;}
+[title$="Title"] {background:silver;}
+[title*="ourt"] {border:2px solid blue;}
+[title|="en"] {border-top: 3px solid orange;}
+/* 只会选中同时具备两个类的元素*/
+</style>
+</head>
+<body>
+<p name="firstName">属性名选择器：name="first" by [name]</p>
+<p name="firstName" title="firstTitle">匹配多个属性名选择器：name="firstName" title="firstTitle" by [name][title]</p>
+<a href="http://www.css-discuss.org/about.html">属性+值精确选择:a[href="http://www.css-discuss.org/about.html"]</a>
+<br><br>
+<a href="http://www.w3.org/" title="W3C Home">多个属性+值精确选择:a[href="http://www.w3.org/"][title="W3C Home"]</a>
+<p title="title with space">[title~="with"] 选择属性中带有with并且需要与其他字符被空格隔开</p>
+<p title="secondTitle">[title^="sec"] 属性值字符串以sec开头</p>
+<p title="thirdTitle">[title$="Title"] 属性值字符串以Title结尾</p>
+<p title="fourthTitle">[title*="ourt"] 属性值字符串中包含ourt字符串</p>
+<p title="en-this work">[title|="en"] 属性值字符串为en或en-开头的</p>
+<p title="en this not work">[title|="en"] en this not work</p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>选择同时具备两个class的元素</title>
+<style type="text/css" media="screen">
+.warning {font-weight: bold;}
+.urgent {font-style: italic;}
+.warning.urgent {background: silver;}	
+/* 只会选中同时具备两个类的元素*/
+</style>
+</head>
+<body>
+<p class="warning">这个元素只有warning类</p>
+<p class="urgent">这个元素只有urgent类</p>
+<p class="urgent warning">这个元素有warning urgent类，每个单独的类的定义的样式也同样产生作用</p>
+<p class="urgent unknow warning ">当存在多个类的时候，只要同时包含这两个类，就会被选中</p>
+<p class="urgent">在IE7以前的浏览器版本中，不会匹配所有声明的类名，只会用多个类中的最后一个类名进行选择</p>
+
+</body>
+</html>

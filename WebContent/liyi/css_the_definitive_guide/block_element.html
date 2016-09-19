@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>block element</title>
+</head>
+<style>
+div {
+	width:100%;
+	height:100px;
+	background-color: silver;
+	margin:0;
+	padding:0;
+}
+
+div.left,div.right,div.center {
+	width:10%;
+	background-color:gray;
+	border: 6px dashed red;
+	margin:50px;
+	padding:50px;
+}
+
+div.left,div.right {
+	background-color:silver;
+	border: 6px dashed silver;
+	padding:100px;
+	margin:0px;
+}
+
+div.right {
+	width:auto;
+}
+
+div.content{
+	background-color:green;
+	padding:800px;
+	margin-top:10%;
+	padding-top:80%;
+}
+
+</style>
+<body>
+<div></div>
+<div class="left"></div>
+<div class="center">
+	<div class="content"></div>
+</div>
+<div class="right"></div>
+<div></div>
+</body>
+<script>
+//border color的颜色如果没有设定，会跟随content 的foreground color，即为content 的文字color
+</script>
+</html>

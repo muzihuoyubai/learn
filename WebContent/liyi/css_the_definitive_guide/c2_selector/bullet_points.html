@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"  href="../../css/bullte_points.css">
+<title>bullet points</title>
+</head>
+<body>
+<ul>
+	<li>
+		<span>class选择器</span>
+		<ol>
+			<li><span>p.warning 选择带有warning class的p元素</span></li>
+			<li>
+				<span>.warning.urgent 选择带有warning和urgent class的元素</span>
+				<em>注意不能加空格哦，加空格变成了子类选择器</em>
+			</li>
+		</ol>
+	</li>
+	<li>
+		<span>ID选择器</span>
+		<ol>
+			<li>
+				<span>	同一个html文档中多个元素含有相同名称的id，所有元素均可能被浏览器赋予css中id选择器的样式，
+						不推荐，要保证id的唯一性
+				</span>
+			</li>
+			<li>
+				<span>	在html中，id属性不能被空格分隔，
+						因此css中id选择器不支持多个id同时选择（类似于类选择器的功能）
+				</span>
+			</li>
+		</ol>
+	</li>
+	<li>
+		<span>属性选择器</span>
+		<ol>
+			<li><span>a[href] 选择带有href属性的a元素</span></li>
+			<li><span>a[href][title] 选择带有href和title属性的a元素</span></li>
+			<li><span>a[href="http://www.w3.org/"][title="W3C Home"] 选择对应属性-值匹配的a元素</span></li>
+			<li><span>[title~="with"] 选择属性中带有with并且该字符串需要与其他字符被空格隔开</span></li>
+			<li><span>[title^="sec"] 属性值字符串以sec开头</span></li>
+			<li>
+				<span>[title$="Title"] 属性值字符串以Title结尾</span>
+				<em>注意区分大小写哦</em>	
+			</li>
+			<li><span>[title*="ourt"] 属性值字符串中包含ourt字符串</span></li>
+			<li><span>[title|="en"] 属性值字符串为en或en-开头的</span></li>
+		</ol>
+	</li>
+	<li>
+		<span>后代选择器</span>
+		<ol>
+			<li>
+				<span>	选择器被逗号分隔，逗号左边的不会作用到右边，<br>
+						p, span b表示选择p标签和span的子元素b标签<br>
+						p b, span b表示选择p的子元素b标签和span的子元素b标签<br>
+				</span>
+			</li>
+			<li><span>h1 > strong 选择h1的直接子元素strong</span></li>
+			<li><span>h1 + p 选择h1的紧挨着的下一个同辈元素p</span></li>
+		</ol>
+	</li>
+	<li>
+		<span>伪类选择器</span>
+		<ol>
+			<li>
+				<span>:link 选择带有href属性<em>且未被点击过</em>的a标签元素</span>
+			</li>
+			<li><span>:visited 选择带有href属性<em>且被访问过</em>的a标签元素</span></li>
+			<li><span>:focus 获取输入焦点时选中</span></li>
+			<li><span>:hover 鼠标悬停时选中</span></li>
+			<li><span>:active 鼠标按下保持时选中</span></li>
+			<li><span>推荐声明css的先后顺序，link-visited-focus-hover-active</span></li>
+			<li><span>p:first-child 选中p元素，这个p元素是父元素的第一个子元素</span></li>
+			<li><span>*:lang(fr) 选中任意为法语的元素</span></li>
+			<li><span>p:first-letter 选中p元素的第一个字符，通常操作块级元素相关属性</span></li>
+			<li><span>p:first-line 选中p元素的第一行字符，通常操作行内元素相关属性</span></li>
+			<li><span>伪类选择器必须放到声明最后面，可以有多个不相冲突的伪类选择器连用</span></li>
+			<li>
+				<span>	h2:before {content: "]]"; color: silver;} 在h2标签前面增加]]内容
+						并且附加样式在增加的内容上
+				</span>
+			</li>
+			<li>
+				<span>	body:after {content: "  The End.";} 在body标签后面增加The End内容
+						并且附加样式在增加的内容上
+				</span>
+			</li>
+		</ol>
+	</li>
+</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
