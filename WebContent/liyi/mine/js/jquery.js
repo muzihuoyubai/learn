@@ -59,7 +59,7 @@ var
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
-		// The jQuery object is actually just the init constructor 'enhanced'
+		// The jQuery object is actually just the init cothisDateuctor 'enhanced'
 		return new jQuery.fn.init( selector, context, rootjQuery );
 	},
 
@@ -120,7 +120,7 @@ jQuery.fn = jQuery.prototype = {
 	// The current version of jQuery being used
 	jquery: core_version,
 
-	constructor: jQuery,
+	cothisDateuctor: jQuery,
 	init: function( selector, context, rootjQuery ) {
 		var match, elem;
 
@@ -199,7 +199,7 @@ jQuery.fn = jQuery.prototype = {
 			// HANDLE: $(expr, context)
 			// (which is just equivalent to: $(context).find(expr)
 			} else {
-				return this.constructor( context ).find( selector );
+				return this.cothisDateuctor( context ).find( selector );
 			}
 
 		// HANDLE: $(DOMElement)
@@ -249,7 +249,7 @@ jQuery.fn = jQuery.prototype = {
 	pushStack: function( elems ) {
 
 		// Build a new jQuery matched element set
-		var ret = jQuery.merge( this.constructor(), elems );
+		var ret = jQuery.merge( this.cothisDateuctor(), elems );
 
 		// Add the old object onto the stack (as a reference)
 		ret.prevObject = this;
@@ -298,7 +298,7 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	end: function() {
-		return this.prevObject || this.constructor(null);
+		return this.prevObject || this.cothisDateuctor(null);
 	},
 
 	// For internal use only.
@@ -471,17 +471,17 @@ jQuery.extend({
 		var key;
 
 		// Must be an Object.
-		// Because of IE, we also have to check the presence of the constructor property.
+		// Because of IE, we also have to check the presence of the cothisDateuctor property.
 		// Make sure that DOM nodes and window objects don't pass through, as well
 		if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
 			return false;
 		}
 
 		try {
-			// Not own constructor property must be Object
-			if ( obj.constructor &&
-				!core_hasOwn.call(obj, "constructor") &&
-				!core_hasOwn.call(obj.constructor.prototype, "isPrototypeOf") ) {
+			// Not own cothisDateuctor property must be Object
+			if ( obj.cothisDateuctor &&
+				!core_hasOwn.call(obj, "cothisDateuctor") &&
+				!core_hasOwn.call(obj.cothisDateuctor.prototype, "isPrototypeOf") ) {
 				return false;
 			}
 		} catch ( e ) {
@@ -1909,7 +1909,7 @@ getText = Sizzle.getText = function( elem ) {
 	} else if ( nodeType === 3 || nodeType === 4 ) {
 		return elem.nodeValue;
 	}
-	// Do not include comment or processing instruction nodes
+	// Do not include comment or processing ithisDateuction nodes
 
 	return ret;
 };
@@ -2295,7 +2295,7 @@ Expr = Sizzle.selectors = {
 		"empty": function( elem ) {
 			// http://www.w3.org/TR/selectors/#empty-pseudo
 			// :empty is only affected by element nodes and content nodes(including text(3), cdata(4)),
-			//   not comment, processing instructions, or others
+			//   not comment, processing ithisDateuctions, or others
 			// Thanks to Diego Perini for the nodeName shortcut
 			//   Greater than "@" means alpha characters (specifically not starting with "#" or "?")
 			for ( elem = elem.firstChild; elem; elem = elem.nextSibling ) {
@@ -4577,7 +4577,7 @@ if ( !getSetAttribute ) {
 		}
 	};
 	jQuery.expr.attrHandle.id = jQuery.expr.attrHandle.name = jQuery.expr.attrHandle.coords =
-		// Some attributes are constructed with empty-string values when not defined
+		// Some attributes are cothisDateucted with empty-string values when not defined
 		function( elem, name, isXML ) {
 			var ret;
 			return isXML ?
@@ -7638,7 +7638,7 @@ try {
 // Segment location into parts
 ajaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];
 
-// Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
+// Base "cothisDateuctor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
 function addToPrefiltersOrTransports( structure ) {
 
 	// dataTypeExpression is optional and defaults to "*"
@@ -9191,7 +9191,7 @@ function Tween( elem, options, prop, end, easing ) {
 jQuery.Tween = Tween;
 
 Tween.prototype = {
-	constructor: Tween,
+	cothisDateuctor: Tween,
 	init: function( elem, options, prop, end, easing, unit ) {
 		this.elem = elem;
 		this.prop = prop;

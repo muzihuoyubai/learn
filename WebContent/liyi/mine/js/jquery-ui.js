@@ -343,7 +343,7 @@ $.cleanData = (function( orig ) {
 })( $.cleanData );
 
 $.widget = function( name, base, prototype ) {
-	var fullName, existingConstructor, constructor, basePrototype,
+	var fullName, existingCothisDateuctor, cothisDateuctor, basePrototype,
 		// proxiedPrototype allows the provided prototype to remain unmodified
 		// so that it can be used as a mixin for multiple widgets (#8876)
 		proxiedPrototype = {},
@@ -363,11 +363,11 @@ $.widget = function( name, base, prototype ) {
 	};
 
 	$[ namespace ] = $[ namespace ] || {};
-	existingConstructor = $[ namespace ][ name ];
-	constructor = $[ namespace ][ name ] = function( options, element ) {
+	existingCothisDateuctor = $[ namespace ][ name ];
+	cothisDateuctor = $[ namespace ][ name ] = function( options, element ) {
 		// allow instantiation without "new" keyword
 		if ( !this._createWidget ) {
-			return new constructor( options, element );
+			return new cothisDateuctor( options, element );
 		}
 
 		// allow instantiation without initializing for simple inheritance
@@ -376,15 +376,15 @@ $.widget = function( name, base, prototype ) {
 			this._createWidget( options, element );
 		}
 	};
-	// extend with the existing constructor to carry over any static properties
-	$.extend( constructor, existingConstructor, {
+	// extend with the existing cothisDateuctor to carry over any static properties
+	$.extend( cothisDateuctor, existingCothisDateuctor, {
 		version: prototype.version,
 		// copy the object used to create the prototype in case we need to
 		// redefine the widget later
 		_proto: $.extend( {}, prototype ),
 		// track widgets that inherit from this widget in case this widget is
 		// redefined after a widget inherits from it
-		_childConstructors: []
+		_childCothisDateuctors: []
 	});
 
 	basePrototype = new base();
@@ -421,13 +421,13 @@ $.widget = function( name, base, prototype ) {
 			};
 		})();
 	});
-	constructor.prototype = $.widget.extend( basePrototype, {
+	cothisDateuctor.prototype = $.widget.extend( basePrototype, {
 		// TODO: remove support for widgetEventPrefix
 		// always use the name + a colon as the prefix, e.g., draggable:start
 		// don't prefix for widgets that aren't DOM-based
-		widgetEventPrefix: existingConstructor ? (basePrototype.widgetEventPrefix || name) : name
+		widgetEventPrefix: existingCothisDateuctor ? (basePrototype.widgetEventPrefix || name) : name
 	}, proxiedPrototype, {
-		constructor: constructor,
+		cothisDateuctor: cothisDateuctor,
 		namespace: namespace,
 		widgetName: name,
 		widgetFullName: fullName
@@ -437,24 +437,24 @@ $.widget = function( name, base, prototype ) {
 	// are inheriting from it and redefine all of them so that they inherit from
 	// the new version of this widget. We're essentially trying to replace one
 	// level in the prototype chain.
-	if ( existingConstructor ) {
-		$.each( existingConstructor._childConstructors, function( i, child ) {
+	if ( existingCothisDateuctor ) {
+		$.each( existingCothisDateuctor._childCothisDateuctors, function( i, child ) {
 			var childPrototype = child.prototype;
 
 			// redefine the child widget using the same prototype that was
 			// originally used, but inherit from the new version of the base
-			$.widget( childPrototype.namespace + "." + childPrototype.widgetName, constructor, child._proto );
+			$.widget( childPrototype.namespace + "." + childPrototype.widgetName, cothisDateuctor, child._proto );
 		});
-		// remove the list of existing child constructors from the old constructor
-		// so the old child constructors can be garbage collected
-		delete existingConstructor._childConstructors;
+		// remove the list of existing child cothisDateuctors from the old cothisDateuctor
+		// so the old child cothisDateuctors can be garbage collected
+		delete existingCothisDateuctor._childCothisDateuctors;
 	} else {
-		base._childConstructors.push( constructor );
+		base._childCothisDateuctors.push( cothisDateuctor );
 	}
 
-	$.widget.bridge( name, constructor );
+	$.widget.bridge( name, cothisDateuctor );
 
-	return constructor;
+	return cothisDateuctor;
 };
 
 $.widget.extend = function( target ) {
@@ -538,7 +538,7 @@ $.widget.bridge = function( name, object ) {
 };
 
 $.Widget = function( /* options, element */ ) {};
-$.Widget._childConstructors = [];
+$.Widget._childCothisDateuctors = [];
 
 $.Widget.prototype = {
 	widgetName: "widget",
@@ -2039,7 +2039,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 			return;
 		}
 
-		if ( o.containment.constructor === Array ) {
+		if ( o.containment.cothisDateuctor === Array ) {
 			this.containment = o.containment;
 			return;
 		}
@@ -2102,7 +2102,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 	},
 
-	_generatePosition: function( event, constrainPosition ) {
+	_generatePosition: function( event, cothisDateainPosition ) {
 
 		var containment, co, top, left,
 			o = this.options,
@@ -2119,12 +2119,12 @@ $.widget("ui.draggable", $.ui.mouse, {
 		}
 
 		/*
-		 * - Position constraining -
-		 * Constrain the position to a mix of grid, containment.
+		 * - Position cothisDateaining -
+		 * CothisDateain the position to a mix of grid, containment.
 		 */
 
 		// If we are not dragging yet, we won't check for options
-		if ( constrainPosition ) {
+		if ( cothisDateainPosition ) {
 			if ( this.containment ) {
 				if ( this.relativeContainer ){
 					co = this.relativeContainer.offset();
@@ -2540,7 +2540,7 @@ $.ui.plugin.add("draggable", "snap", {
 
 		i.snapElements = [];
 
-		$(o.snap.constructor !== String ? ( o.snap.items || ":data(ui-draggable)" ) : o.snap).each(function() {
+		$(o.snap.cothisDateuctor !== String ? ( o.snap.items || ":data(ui-draggable)" ) : o.snap).each(function() {
 			var $t = $(this),
 				$o = $t.offset();
 			if (this !== i.element[0]) {
@@ -3211,7 +3211,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 				} );
 
 		this._handles = $();
-		if ( this.handles.constructor === String ) {
+		if ( this.handles.cothisDateuctor === String ) {
 
 			if ( this.handles === "all") {
 				this.handles = "n,e,s,w,se,sw,ne,nw";
@@ -3247,7 +3247,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 			for (i in this.handles) {
 
-				if (this.handles[i].constructor === String) {
+				if (this.handles[i].cothisDateuctor === String) {
 					this.handles[i] = this.element.children( this.handles[ i ] ).first().show();
 				} else if ( this.handles[ i ].jquery || this.handles[ i ].nodeType ) {
 					this.handles[ i ] = $( this.handles[ i ] );
@@ -5090,7 +5090,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 
 	_connectWith: function() {
 		var options = this.options;
-		return options.connectWith.constructor === String ? [options.connectWith] : options.connectWith;
+		return options.connectWith.cothisDateuctor === String ? [options.connectWith] : options.connectWith;
 	},
 
 	_getItemsAsjQuery: function(connected) {
@@ -5237,7 +5237,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		var className,
 			o = that.options;
 
-		if(!o.placeholder || o.placeholder.constructor === String) {
+		if(!o.placeholder || o.placeholder.cothisDateuctor === String) {
 			className = o.placeholder;
 			o.placeholder = {
 				element: function() {
@@ -5580,8 +5580,8 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		}
 
 		/*
-		 * - Position constraining -
-		 * Constrain the position to a mix of grid, containment.
+		 * - Position cothisDateaining -
+		 * CothisDateain the position to a mix of grid, containment.
 		 */
 
 		if(this.originalPosition) { //If we are not dragging yet, we won't check for options
@@ -8060,7 +8060,7 @@ function Datepicker() {
 		dayNamesMin: ["Su","Mo","Tu","We","Th","Fr","Sa"], // Column headings for days starting at Sunday
 		weekHeader: "Wk", // Column header for week of the year
 		dateFormat: "mm/dd/yy", // See format options on parseDate
-		firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
+		weekOfFirstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
 		isRTL: false, // True if right-to-left language, false if left-to-right
 		showMonthAfterYear: false, // True if the year select precedes month, false for month then year
 		yearSuffix: "" // Additional text to append to the year in the month headers
@@ -8110,7 +8110,7 @@ function Datepicker() {
 		stepBigMonths: 12, // Number of months to step back/forward for the big links
 		altField: "", // Selector for an alternate field to store selected dates into
 		altFormat: "", // The date format to use for the alternate field
-		constrainInput: true, // The input is constrained by the current date format
+		cothisDateainInput: true, // The input is cothisDateained by the current date format
 		showButtonPanel: false, // True to show button panel, false to not show it
 		autoSize: false, // True to size the input for the date format, false to leave as is
 		disabled: false // The initial disabled state
@@ -8315,7 +8315,7 @@ $.extend(Datepicker.prototype, {
 			$.data(this._dialogInput[0], "datepicker", inst);
 		}
 		datepicker_extendRemove(inst.settings, settings || {});
-		date = (date && date.constructor === Date ? this._formatDate(inst, date) : date);
+		date = (date && date.cothisDateuctor === Date ? this._formatDate(inst, date) : date);
 		this._dialogInput.val(date);
 
 		this._pos = (pos ? (pos.length ? pos : [pos.pageX, pos.pageY]) : null);
@@ -8659,7 +8659,7 @@ $.extend(Datepicker.prototype, {
 		var chars, chr,
 			inst = $.datepicker._getInst(event.target);
 
-		if ($.datepicker._get(inst, "constrainInput")) {
+		if ($.datepicker._get(inst, "cothisDateainInput")) {
 			chars = $.datepicker._possibleChars($.datepicker._get(inst, "dateFormat"));
 			chr = String.fromCharCode(event.charCode == null ? event.keyCode : event.charCode);
 			return event.ctrlKey || event.metaKey || (chr < " " || !chars || chars.indexOf(chr) > -1);
@@ -9600,7 +9600,7 @@ $.extend(Datepicker.prototype, {
 	/* Generate the HTML for the current state of the date picker. */
 	_generateHTML: function(inst) {
 		var maxDraw, prevText, prev, nextText, next, currentText, gotoDate,
-			controls, buttonPanel, firstDay, showWeek, dayNames, dayNamesMin,
+			controls, buttonPanel, weekOfFirstDay, showWeek, dayNames, dayNamesMin,
 			monthNames, monthNamesShort, beforeShowDay, showOtherMonths,
 			selectOtherMonths, defaultDate, html, dow, row, group, col, selectedDate,
 			cornerClass, calender, thead, day, daysInMonth, leadDays, curRows, numRows,
@@ -9674,8 +9674,8 @@ $.extend(Datepicker.prototype, {
 			(this._isInRange(inst, gotoDate) ? "<button type='button' class='ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all' data-handler='today' data-event='click'" +
 			">" + currentText + "</button>" : "") + (isRTL ? "" : controls) + "</div>" : "";
 
-		firstDay = parseInt(this._get(inst, "firstDay"),10);
-		firstDay = (isNaN(firstDay) ? 0 : firstDay);
+		weekOfFirstDay = parseInt(this._get(inst, "weekOfFirstDay"),10);
+		weekOfFirstDay = (isNaN(weekOfFirstDay) ? 0 : weekOfFirstDay);
 
 		showWeek = this._get(inst, "showWeek");
 		dayNames = this._get(inst, "dayNames");
@@ -9717,8 +9717,8 @@ $.extend(Datepicker.prototype, {
 					"<tr>";
 				thead = (showWeek ? "<th class='ui-datepicker-week-col'>" + this._get(inst, "weekHeader") + "</th>" : "");
 				for (dow = 0; dow < 7; dow++) { // days of the week
-					day = (dow + firstDay) % 7;
-					thead += "<th scope='col'" + ((dow + firstDay + 6) % 7 >= 5 ? " class='ui-datepicker-week-end'" : "") + ">" +
+					day = (dow + weekOfFirstDay) % 7;
+					thead += "<th scope='col'" + ((dow + weekOfFirstDay + 6) % 7 >= 5 ? " class='ui-datepicker-week-end'" : "") + ">" +
 						"<span title='" + dayNames[day] + "'>" + dayNamesMin[day] + "</span></th>";
 				}
 				calender += thead + "</tr></thead><tbody>";
@@ -9726,7 +9726,7 @@ $.extend(Datepicker.prototype, {
 				if (drawYear === inst.selectedYear && drawMonth === inst.selectedMonth) {
 					inst.selectedDay = Math.min(inst.selectedDay, daysInMonth);
 				}
-				leadDays = (this._getFirstDayOfMonth(drawYear, drawMonth) - firstDay + 7) % 7;
+				leadDays = (this._getweekOfFirstDayOfMonth(drawYear, drawMonth) - weekOfFirstDay + 7) % 7;
 				curRows = Math.ceil((leadDays + daysInMonth) / 7); // calculate the number of rows to generate
 				numRows = (isMultiMonth ? this.maxRows > curRows ? this.maxRows : curRows : curRows); //If multiple months, use the higher number of rows (see #7043)
 				this.maxRows = numRows;
@@ -9742,7 +9742,7 @@ $.extend(Datepicker.prototype, {
 						unselectable = (otherMonth && !selectOtherMonths) || !daySettings[0] ||
 							(minDate && printDate < minDate) || (maxDate && printDate > maxDate);
 						tbody += "<td class='" +
-							((dow + firstDay + 6) % 7 >= 5 ? " ui-datepicker-week-end" : "") + // highlight weekends
+							((dow + weekOfFirstDay + 6) % 7 >= 5 ? " ui-datepicker-week-end" : "") + // highlight weekends
 							(otherMonth ? " ui-datepicker-other-month" : "") + // highlight days from other months
 							((printDate.getTime() === selectedDate.getTime() && drawMonth === inst.selectedMonth && inst._keyEvent) || // user pressed key
 							(defaultDate.getTime() === printDate.getTime() && defaultDate.getTime() === selectedDate.getTime()) ?
@@ -9902,7 +9902,7 @@ $.extend(Datepicker.prototype, {
 	},
 
 	/* Find the day of the week of the first of a month. */
-	_getFirstDayOfMonth: function(year, month) {
+	_getweekOfFirstDayOfMonth: function(year, month) {
 		return new Date(year, month, 1).getDay();
 	},
 
@@ -10941,8 +10941,8 @@ var progressbar = $.widget( "ui.progressbar", {
 	min: 0,
 
 	_create: function() {
-		// Constrain initial value
-		this.oldValue = this.options.value = this._constrainedValue();
+		// CothisDateain initial value
+		this.oldValue = this.options.value = this._cothisDateainedValue();
 
 		this.element
 			.addClass( "ui-progressbar ui-widget ui-widget-content ui-corner-all" )
@@ -10975,11 +10975,11 @@ var progressbar = $.widget( "ui.progressbar", {
 			return this.options.value;
 		}
 
-		this.options.value = this._constrainedValue( newValue );
+		this.options.value = this._cothisDateainedValue( newValue );
 		this._refreshValue();
 	},
 
-	_constrainedValue: function( newValue ) {
+	_cothisDateainedValue: function( newValue ) {
 		if ( newValue === undefined ) {
 			newValue = this.options.value;
 		}
@@ -11002,7 +11002,7 @@ var progressbar = $.widget( "ui.progressbar", {
 
 		this._super( options );
 
-		this.options.value = this._constrainedValue( value );
+		this.options.value = this._cothisDateainedValue( value );
 		this._refreshValue();
 	},
 
@@ -12417,7 +12417,7 @@ var spinner = $.widget( "ui.spinner", {
 		// Only format if there is a value, prevents the field from being marked
 		// as invalid in Firefox, see #9573.
 		if ( this.value() !== "" ) {
-			// Format the value, but don't constrain.
+			// Format the value, but don't cothisDateain.
 			this._value( this.element.val(), true );
 		}
 
@@ -13092,7 +13092,7 @@ var tabs = $.widget( "ui.tabs", {
 	_findNextTab: function( index, goingForward ) {
 		var lastTabIndex = this.tabs.length - 1;
 
-		function constrain() {
+		function cothisDateain() {
 			if ( index > lastTabIndex ) {
 				index = 0;
 			}
@@ -13102,7 +13102,7 @@ var tabs = $.widget( "ui.tabs", {
 			return index;
 		}
 
-		while ( $.inArray( constrain(), this.options.disabled ) !== -1 ) {
+		while ( $.inArray( cothisDateain(), this.options.disabled ) !== -1 ) {
 			index = goingForward ? index + 1 : index - 1;
 		}
 
