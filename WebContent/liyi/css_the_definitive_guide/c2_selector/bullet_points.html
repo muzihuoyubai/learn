@@ -74,9 +74,14 @@
 			<li><span>推荐声明css的先后顺序，link-visited-focus-hover-active</span></li>
 			<li><span>p:first-child 选中p元素，这个p元素是父元素的第一个子元素</span></li>
 			<li><span>*:lang(fr) 选中任意为法语的元素</span></li>
+			<li><span>伪类选择器必须放到声明最后面，可以有多个不相冲突的伪类选择器连用</span></li>
+		</ol>
+	</li>
+	<li>
+		<span>伪元素选择器</span>
+		<ol>
 			<li><span>p:first-letter 选中p元素的第一个字符，通常操作块级元素相关属性</span></li>
 			<li><span>p:first-line 选中p元素的第一行字符，通常操作行内元素相关属性</span></li>
-			<li><span>伪类选择器必须放到声明最后面，可以有多个不相冲突的伪类选择器连用</span></li>
 			<li>
 				<span>	h2:before {content: "]]"; color: silver;} 在h2标签前面增加]]内容
 						并且附加样式在增加的内容上

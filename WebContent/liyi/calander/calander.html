@@ -5,20 +5,19 @@
 <title>Insert title here</title>
 <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
 <style>
-
 table {
 	text-align: center;
 	font-family: Helvetica;
-	font-size:16px;
+	font-size: 16px;
 	line-height: 1.5em;
 }
 
-table th{
-	color:#999;
+table th {
+	color: #999;
 }
 
-tbody td:nth-child(1), tbody td:nth-child(7){
-	color:#777;
+tbody td:nth-child(1), tbody td:nth-child(7) {
+	color: #777;
 }
 
 table td {
@@ -27,20 +26,19 @@ table td {
 }
 
 .thisDay {
-	border-radius:1.5em;
-	border:1px solid red;
-	width:1.5em;
-	height:100%;
-	display:inline-block;
+	border-radius: 1.5em;
+	border: 1px solid red;
+	width: 1.5em;
+	height: 100%;
+	display: inline-block;
 	background-color: red;
-	color:white;
+	color: white;
 }
-
 </style>
 </head>
 <body>
 	<table>
-		<caption></caption>  
+		<caption></caption>
 		<thead>
 			<tr>
 				<th>周日</th>
@@ -57,48 +55,78 @@ table td {
 	</table>
 </body>
 <script>
-    $(function() {
-        $.fn.extend({
-            calander : getCalander
-        });
-        $("table").calander();
-    })
+$(function() {
+    $.fn.extend({
+        //calander : getCalander
+        calander : getCalanderByYearAndMonth
+    });
+    $("table").calander(2016, 9);
+});
 
-    function getCalander() {
-        console.log($(this));
-        var thisDate = new Date(); //当前Date资讯
-        var thisYear = thisDate.getFullYear(); //年份
-        var thisMonth = thisDate.getMonth(); //月份
-        var thisDay = thisDate.getDate(); //今日日期
-        var firstDay = new Date(thisYear, thisMonth, 1); //当月第一天Date资讯
-        var weekOfFirstDay = firstDay.getDay(); //当月第一天星期几
-        var eachMonthTotalDays = new Array(31, 28 + is_leap(thisYear), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31); //各月份的总天数
+function getCalander() {
+    var thisDate = new Date(); //当前Date资讯
+    var thisYear = thisDate.getFullYear(); //年份
+    var thisMonth = thisDate.getMonth(); //月份
+    var thisDay = thisDate.getDate(); //今日日期
+    var firstDay = new Date(thisYear, thisMonth, 1); //当月第一天Date资讯
+    var weekOfFirstDay = firstDay.getDay(); //当月第一天星期几
+    var eachMonthTotalDays = new Array(31, 28 + leapYearCount(thisYear), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31); //各月份的总天数
+    var weekCount = Math.ceil((eachMonthTotalDays[thisMonth] + weekOfFirstDay) / 7); //表格所需要行数
 
-        var weekCount = Math.ceil((eachMonthTotalDays[thisMonth] + weekOfFirstDay) / 7); //表格所需要行数
-
-        for (i = 0; i < weekCount; i++) { //表格的行
-			$tr = $("<tr></tr>").appendTo($(this).find("tbody"));
-            for (k = 0; k < 7; k++) { //表格每行的单元格
-                $td = $("<td></td>").appendTo($tr);
-                var idx = i * 7 + k; //单元格自然序列号
-                var date_str = idx - weekOfFirstDay + 1; //计算日期
-                (date_str<=0 || date_str>eachMonthTotalDays[thisMonth]) ? date_str = "" : date_str = idx - weekOfFirstDay + 1; //过滤无效日期（小于等于零的、大于月总天数的）
-                //打印日期：今天底色为红
-                
-                if(date_str == thisDay){
-                    $td.append("<span class='thisDay'>"+ date_str +"</span>");
-                }else{
-                    $td.text(date_str);
-                }
-            }
-        }
- 
-		$(this).find("caption").text(thisMonth + 1 +"月");
-
+    for (i = 0; i < weekCount; i++) { //表格的行
+        $tr = $("<tr></tr>").appendTo($(this).find("tbody"));
+        for (k = 0; k < 7; k++) { //表格每行的单元格
+            $td = $("<td></td>").appendTo($tr);
+            var idx = i * 7 + k; //单元格自然序列号
+            var dayStr = idx - weekOfFirstDay + 1; //计算当前idx代表的日期
+           	//过滤无效日期（小于等于零的、大于月总天数的）
+            if(dayStr <= 0 || dayStr > eachMonthTotalDays[thisMonth]){
+                 dayStr = "";
+             } 
+             //打印日期：今天底色为红
+             if(dayStr == thisDay) {
+                 $td.append("<span class='thisDay'>"+ dayStr +"</span>");
+             } else {
+                 $td.text(dayStr);
+             }
+         }
     }
+	$(this).find("caption").text(thisYear + "年" + thisMonth + 1 +"月");
+}
 
-    function is_leap(year) {
-        return (year % 100 == 0 ? res = (year % 400 == 0 ? 1 : 0) : res = (year % 4 == 0 ? 1 : 0));
-    } //是否为闰年
+function getCalanderByYearAndMonth(year, month){
+    var thisDate = new Date(); //当前Date资讯
+    var thisYear = year; //年份
+    var thisMonth = month - 1; //月份
+    var thisDay = thisDate.getDate(); //今日日期
+    var firstDay = new Date(thisYear, thisMonth, 1); //当月第一天Date资讯
+    var weekOfFirstDay = firstDay.getDay(); //当月第一天星期几
+    var eachMonthTotalDays = new Array(31, 28 + leapYearCount(thisYear), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31); //各月份的总天数
+    var weekCount = Math.ceil((eachMonthTotalDays[thisMonth] + weekOfFirstDay) / 7); //表格所需要行数
+
+    for (i = 0; i < weekCount; i++) { //表格的行
+        $tr = $("<tr></tr>").appendTo($(this).find("tbody"));
+        for (k = 0; k < 7; k++) { //表格每行的单元格
+            $td = $("<td></td>").appendTo($tr);
+            var idx = i * 7 + k; //单元格自然序列号
+            var dayStr = idx - weekOfFirstDay + 1; //计算当前idx代表的日期
+           	//过滤无效日期（小于等于零的、大于月总天数的）
+            if(dayStr <= 0 || dayStr > eachMonthTotalDays[thisMonth]){
+                 dayStr = "";
+             } 
+             //打印日期：今天底色为红
+             if(dayStr == thisDay && thisYear == thisDate.getFullYear() && thisMonth == thisDate.getMonth()) {
+                 $td.append("<span class='thisDay'>"+ dayStr +"</span>");
+             } else {
+                 $td.append("<span>"+ dayStr +"</span>");
+             }
+         }
+    }
+	$(this).find("caption").text(thisYear + "年" + (thisMonth + 1) +"月");
+}
+
+function leapYearCount(year) {
+    return (year % 100 == 0 ? res = (year % 400 == 0 ? 1 : 0) : res = (year % 4 == 0 ? 1 : 0));
+} //是否为闰年
 </script>
 </html>
