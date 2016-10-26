@@ -1,6 +1,27 @@
-ul>li>span:FIRST-CHILD {
-	font-size:1.5em;
+body {
+    font-size: 14px;
 }
-span {line-height: 1.5em;}
-li { margin:10px; }
-em { font-weight: bold;}
+
+ul, ul>span{
+    font-size: 1.5em;
+}
+
+li>ul>li {
+    font-size: 0.6em;
+}
+
+
+/*
+ul.example li span {
+    font-size: inherit;
+}
+span {
+    line-height: 1.5em;
+}*/
+li {
+    margin: 10px;
+}
+
+em {
+    font-weight: bold;
+}
