@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"  href="../../css/bullte_points.css">
+<title>bullet points</title>
+</head>
+<body>
+<ul>
+	<li>
+		<span>specificity权重，当有多个选择器同时选中某元素并且操作的样式有冲突的时候，通过权重进行判断哪个样式最终被加载</span>
+		<ol>
+			<li><span>!important，带有important的归为一组进行权重比较<em>与没有important的样式冲突的时候，总是会加载important的样式，不考虑权重</em></span></li>
+			<li><span>行内样式，即html标签中的style=""，1000</span></li>
+			<li><span>ID选择器，0100</span></li>
+			<li><span>类、属性、伪类选择器，0010</span></li>
+			<li><span>元素、伪元素选择器，0001</span></li>
+			<li><span>关系选择器以及全局选择器无权重</span></li>
+		</ol>
+		<ul class="example">
+			<li><span>示例</span></li>
+			<li><span>html > body table tr[id="totals"] td ul > li {color: maroon;}  /* 0,0,1,7 */</span></li>
+			<li><span>hli#answer {color: navy;}  /* 0,1,0,1  (winner) */</span></li>
+			<li><span>#meadow{color:red} 权重为0100，*[id='meadow']{color:red}权重为0010</span></li>
+		</ul>
+	</li>
+</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
