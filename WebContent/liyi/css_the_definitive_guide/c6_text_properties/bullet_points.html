@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"  href="../../css/bullte_points.css">
+<title>bullet points</title>
+</head>
+<body>
+	<ul>
+		<li>text-indent
+			<ul>
+				<li>必须应用于块级元素，不能应用在行内元素和replaced元素-例如image上</li>
+				<li>该属性会被子类块级元素继承</li>
+				<li>可以接收负值，首行文字突出</li>
+			</ul>
+		</li>
+		<li>text-align
+			<ul>
+				<li>必须应用于块级元素</li>
+				<li>does not control the alignment of elements, only their inline content.</li>
+				<li>text-align:justify —— the spacing between words and letters is adjusted so that each line is precisely the same length</li>
+			</ul>
+		</li>
+		<li>line-height
+			<ul>
+				<li>refers to the distance between the baselines of lines of text rather than the size of the font</li>
+				<li>When applied to a block-level element, line-height defines the minimum distance between text baselines within that element.</li>
+				<li>子元素继承自父元素的计算后的值</li>
+				<li>div {line-height: 1.5;} 使用1.5 * font-size 计算值作为最终的结果</li>
+			</ul>
+		</li>
+		<li>vertical-align
+			<ul>
+				<li>applies only to inline elements and replaced elements such as images and form inputs</li>
+				<li>百分比参考值为line-height</li>
+				<li>如果给image, a form input, or another replaced element这些没有baseline的元素text-align:baseline，则该元素底部 aligned with the baseline of its parent</li>
+				<li>vertical-align: sub指的是该元素align相对于其父元素的baseline再低一点，低多少由浏览器决定，super则相反</li>
+				<li> text-bottom指的是行内文字的底部，对于replaced elements, or any other kinds of non-text elements,由父元素的font-size得出的一个默认的box，该元素底部和默认的box底部对齐</li>
+				<li> 百分比通过该元素的line-height进行计算，得出相对于baseline的偏移量，整数向上负数向下</li>
+				<li>It's important to realize that vertically aligned text does not become part of another line, nor does it overlap text in other lines</li>
+				<li>vertically aligned element can affect the height of the line</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
