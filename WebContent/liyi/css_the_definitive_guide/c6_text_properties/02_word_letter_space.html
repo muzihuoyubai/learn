@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="../../css/bullte_points.css">
+<title></title>
+<style>
+body{font-size:16px;}
+span {font-size:4em; margin-top: 50px;}
+
+.word p.spread {word-spacing: 0.5em;}
+.word p.tight {word-spacing: -0.5em;}
+.word p.base {word-spacing: normal;}
+.word p.norm {word-spacing: 0;}
+
+.letter p {letter-spacing: 0;}    /*  identical to 'normal'  */
+.letter p.spacious {letter-spacing: 0.25em;}
+.letter p.tight {letter-spacing: -0.25em;}
+		
+.transform h1 {text-transform: capitalize;}
+.transform strong {text-transform: uppercase;}
+.transform p.cummings {text-transform: lowercase;}
+.transform p.raw {text-transform: none;}
+
+.decoration p.emph {text-decoration: underline;}
+.decoration p.topper {text-decoration: overline;}
+.decoration p.old {text-decoration: line-through;}
+.decoration p.annoy {text-decoration: blink;}
+.decoration p.plain {text-decoration: none;}
+
+.shadow p.cl1 {color: black; text-shadow: silver 2px 2px 2px;}
+.shadow p.cl2 {color: white; text-shadow: 0 0 4px black;}
+.shadow p.cl3 {color: black; text-shadow: 1em 1em 5px gray, -1em -1em silver;}
+</style>
+</head>
+<body>
+	<div class="word">
+		<span>word-spacing</span>
+		<p class="spread">The spaces between words in this paragraph will
+			be increased by 0.5em.</p>
+		<p class="tight">The spaces between words in this paragraph will
+			be decreased by 0.5em.</p>
+		<p class="base">The spaces between words in this paragraph will be
+			normal.</p>
+		<p class="norm">The spaces between words in this paragraph will be
+			normal.</p>
+		<br>
+	</div>
+	<span>letter-spacing</span>
+	<div class="letter">
+		<p>The letters in this paragraph are spaced as normal.</p>
+		<p class="spacious">The letters in this paragraph are spread out a
+			bit.</p>
+		<p class="tight">The letters in this paragraph are a bit smashed
+			together.</p>
+	</div>
+	<span>text-transform</span>
+	<div class="transform">
+		<h1>The heading-one at the beginninG</h1>
+		<p>
+			By default, text is displayed in the capitalization it has in the
+			source document, but <strong>it is possible to change this</strong>
+			using the property 'text-transform'.
+		</p>
+		<p class="cummings">For example, one could Create TEXT such as
+			might have been Written by the late Poet e.e.cummings.</p>
+		<p class="raw">If you feel the need to Explicitly Declare the
+			transformation of text to be 'none', that can be done as well.</p>
+	</div>
+	<span>text-decoration</span>
+	<div class="decoration ">
+		<p class="emph">
+			The text of this paragraph which has a class of 'emph' is underlined
+		</p>
+		<p class="topper">
+			The text of this paragraph which has a class of 'topper' is overlined
+		</p>
+		<p class="old">
+			The text of this paragraph which has a class of 'old' is stricken line-through
+		</p>
+		<p class="annoy">
+			The text of this paragraph which has a class of 'annoy' is blinking
+		</p>
+		<p class="plain">
+			The text of this paragraph which has a class of 'plain' has no decoration of any kind
+		</p>
+	</div>
+	<span>text-shadow</span>
+	<div class="shadow ">
+		<p class="cl1">The color sets the shadow's color, of course, so
+			it's possible to define green, purple, or even white shadows.</p>
+		<p class="cl2">The first two length values determine the offset
+			distance of the shadow from the text, and the optional third length
+			value defines the "blur radius" for the shadow.</p>
+		<p class="cl3">To define a green shadow offset five pixels to the
+			right and half an em down from the text, with no blurring</p>
+	</div>
+	
+	<span>white-space</span>
+	<p style="white-space: normal;">This    paragraph   has     many
+	spaces        in it.</p>
+	<p style="white-space:pre;">	This    paragraph   has     
+	many
+    	spaces        in it.</p>
+	<p style="white-space: nowrap;">This    paragraph    is    not allowed to wrap,
+	which means that the only way to end a line is to insert a line-break
+	element.  If no such element is inserted, then the line will go forever,
+	forcing the user to scroll horizontally to read whatever can't be
+	initially displayed <br/>in the browser window.</p>
+	<p style="white-space: pre-wrap;">
+	This  paragraph      has  a  great   many   s p a c e s   within  its textual
+	  content,   but their    preservation     will    not    prevent   line
+	    wrapping or line breaking.
+	</p>
+	<p style="white-space: pre-line;">
+	This  paragraph      has  a  great   many   s p a c e s   within  its textual
+	  content,   but their collapse  will    not    prevent   line
+	    wrapping or line breaking.
+	</p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
