@@ -1,27 +1,23 @@
 body {
-    font-size: 14px;
+	font-size: 14px;
 }
 
-ul, ul>span{
-    font-size: 1.5em;
+ul, ul>span {
+	font-size: 1.5em;
 }
 
 li>ul>li {
-    font-size: 0.6em;
+	font-size: 0.6em;
 }
 
-
-/*
-ul.example li span {
-    font-size: inherit;
-}
-span {
-    line-height: 1.5em;
-}*/
 li {
-    margin: 10px;
+	margin: 10px;
 }
 
 em {
-    font-weight: bold;
+	font-weight: bold;
+}
+
+.be_important {
+	color: red;
 }

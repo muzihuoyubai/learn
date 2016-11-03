@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+*{margin:0;padding:0;}
+.container {width:100px; border:1px solid red;height:200px;margin:20px;}
+.inner{width:100%;margin-left:10px;margin-top:20px; border:1px solid green;height:100%;}
+</style>
+</head>
+<body>
+	<div style="width: 200px; height: 400px; border: 1px solid blue;">
+		<div class="container">
+			<div class="inner">父元素有border的时候，border或padding会阻挡子元素的margin，margin相对border或padding进行计算</div>
+		</div>
+	</div>
+	<div style="width: 200px; height: 400px; border: 1px solid blue;">
+		<div class="container" style="border: none;">
+			<div class="inner">父元素没有border的时候，子元素的margin会stick out 父元素的context area</div>
+		</div>
+	</div>
+</body>
+</html>
