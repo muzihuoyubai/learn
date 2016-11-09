@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link href="../jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+<style>
+div {
+	margin:25px 0;
+}
+</style>
+</head>
+<body>
+	<div id="list1">
+		<span>当文字元素同input在同一个父元素下，该父元素被加载buttonset样式后，input获得float：left属性，文字被推到后面</span>
+		<input type="radio" id="list1_1" name="list_1" value="1"><label for="list1_1">list1_1</label>
+		<input type="radio" id="list1_2" name="list_1" value="2"><label for="list1_2">list1_2</label>
+		<input type="radio" id="list1_3" name="list_1" value="3"><label for="list1_3">list1_3</label>
+	</div>
+	<br>
+	<div id="list2">
+		<span>所有input元素先加载button样式，然后其父元素再加载buttonset样式</span>
+		<input type="radio" id="list2_1" name="list_2" value="1"><label for="list2_1">list2_1</label>
+		<input type="radio" id="list2_2" name="list_2" value="2"><label for="list2_2">list2_2</label>
+		<input type="radio" id="list2_3" name="list_2" value="3"><label for="list2_3">list2_3</label>
+	</div>
+	<br>
+	<div id="list3">
+		<span>input元素父元素先加载buttonset样式，再加载button样式</span>
+		<input type="radio" id="list3_1" name="list_3" value="1"><label for="list3_1">list3_1</label>
+		<input type="radio" id="list3_2" name="list_3" value="2"><label for="list3_2">list3_2</label>
+		<input type="radio" id="list3_3" name="list_3" value="3"><label for="list3_3">list3_3</label>
+	</div>
+	<br>
+	<div id="list4">
+		<span>input元素加载button样式</span>
+		<input type="radio" id="list4_1" name="list_4" value="1"><label for="list4_1">list4_1</label>
+		<input type="radio" id="list4_2" name="list_4" value="2"><label for="list4_2">list4_2</label>
+		<input type="radio" id="list4_3" name="list_4" value="3"><label for="list4_3">list4_3</label>
+	</div>
+	<span>input元素加载button样式</span>
+	<div id="list5">
+		<input type="radio" id="list5_1" name="list_5" value="1"><label for="list5_1">list5_1</label>
+		<input type="radio" id="list5_2" name="list_5" value="2"><label for="list5_2">list5_2</label>
+		<input type="radio" id="list5_3" name="list_5" value="3"><label for="list5_3">list5_3</label>
+	</div>
+	<br>
+	<button id="get_checked_name">获取checked的元素</button>
+	<div id="message"></div>
+</body>
+<script type="text/javascript" src="../jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="../jquery-ui-1.12.1/jquery-ui.js"></script>
+<script>
+$(function(){
+    $("#list1").buttonset();
+    $("#list2 input").button();
+    $("#list2").buttonset();
+    $("#list3").buttonset().find("input").button();
+    $("#list4 input").button();
+    $("#list5").buttonset();
+    $("#get_checked_name").button().click(function() {
+            var nameStr = ""
+            $("input:checked").each(function() {
+                nameStr += $(this).attr("name") + "_" + $(this).val() + "  ";
+            })
+            $("#message").text(nameStr);
+        });
+    });
+</script>
+</html>
