@@ -24,6 +24,48 @@
 				<li>margin可以为负值，负值将缩短两个元素的距离</li>
 				<li>七个值之和等于parent element或containing box的height</li>
 				<li class="be_important">百分比的设定值，百分比同样参考参考其父元素的width，borders cannot have percentage widths</li>
+				<li>height的百分比参考为父级块元素的height</li>
+				<li>COLLAPSING VERTICAL MARGINS
+				<li class="illustration">
+					垂直方向上相邻的两个块级元素的间距等于二者相邻的垂直方向margin最大的那个值，而不是二者的垂直方向margin之和
+				</li>
+			</ul>
+		</li>
+		<li>inline element
+			<ul>
+				<li>
+					定义说明
+					<ul>
+						<li>Anonymous text:块级元素中没有使用inline元素标签包裹的text</li>
+						<li>Em box: font-size的高度大小的盒子</li>
+						<li>Content area:em boxes集合</li>
+						<li>Leading: line-height 减去 font-size的值，放在content area上面一半下面一半</li>
+						<li>Inline box: line-height，对于replaced element指的是替换后的实际高度</li>
+						<li>Line box: inline box 集合中，最高点到最低点的整体区域</li>
+					</ul>
+				</li>
+				<li>Padding, borders, and margins 不会影响inline element的line box高度</li>
+				<li>对一个block element设定line-height，设定的是其inline子元素的最小行高</li>
+				<li>保证line-height可以放得下内容，不会导致行与行之间堆叠，可以设定line-height:1em或 1<br>
+						p {font-size: 14px; line-height: 1em;}或p {font-size: 14px; line-height: 1;}
+				</li>
+				<li>SCALING LINE HEIGHTS
+					<ul>
+						<li>使用倍数值设定p {font-size: 15px; line-height: 1.5;}</li>
+						<li>设定的倍数会被继承，子元素根据自己的font-size 进行计算</li>
+					</ul>
+				</li>
+				<li>border所包围的区域为font-size限定的区域，而不是line-height的区域</li>
+				<li>浏览器基本忽略top and bottom margins，left和right margin可以被显示出来，同样可以支持负值，将两个元素拉近甚至堆叠</li>
+				<li> an inline replaced element仍然有line-height的值，其值作为vertical-align 的百分比的参考</li>
+				<li>默认状态，所有的inline element沿着baseline对齐，对于replaced element，其margin-bottom的外沿与baseline对齐</li>
+			</ul>
+		</li>
+		<li>display: inline/block/inline-block
+			<ul>
+				<li>块级元素被声明为inline，实际还是块级元素，只是其显示形态和inline元素相同，反之亦然，并且block的inline元素中还是不可以包含块级元素</li>
+				<li class="illustration"> display is named such because it affects how the element is displayed, not what kind of element it is.</li>
+				<li>inline-block元素与replaced元素类似，其margin-bottom底部与text的baseline对齐</li>
 			</ul>
 		</li>
 	</ul>

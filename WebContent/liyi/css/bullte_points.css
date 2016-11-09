@@ -21,3 +21,6 @@ em {
 .be_important {
 	color: red;
 }
+.illustration {
+	list-style-type: none;
+}
