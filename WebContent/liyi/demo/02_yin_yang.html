@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: gray;
+	padding: 100px;
+}
+
+.semi-circle-left {
+	float:left;
+	border-radius: 400px 0px 0px 400px;
+	width: 200px;
+	height: 400px;
+	background-color: black;
+}
+
+.semi-circle-right {
+	float:left;
+	border-radius: 0px 400px 400px 0px;
+	width: 200px;
+	height: 400px;
+	background-color: white;
+}
+
+.inner-semi-circle-right {
+	display: inline-block;
+	border-radius: 0px 200px 200px 0px;
+	width: 100px;
+	height: 200px;
+	background-color: black;
+	position: relative;
+	top: 200px;
+}
+
+.inner-semi-circle-left {
+	display: inline-block;
+	border-radius: 200px 0px 0px 200px;
+	width: 100px;
+	height: 200px;
+	background-color: white;
+	position: relative;
+	left: 100px;
+}
+
+.inner-dot-top {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: black;
+	right: 0;
+	top: 50%;
+	transform: translateX(50%) translateY(-50%);
+}
+
+.inner-dot-bottom {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: white;
+	left: 0;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+</style>
+<body>
+	<div class="semi-circle-left">
+		<div class="inner-semi-circle-left">
+			<div class="inner-dot-top"></div>
+		</div>
+	</div>
+	<div class="semi-circle-right">
+		<div class="inner-semi-circle-right">
+			<div class="inner-dot-bottom"></div>
+		</div>
+	</div>
+</body>
+</html>

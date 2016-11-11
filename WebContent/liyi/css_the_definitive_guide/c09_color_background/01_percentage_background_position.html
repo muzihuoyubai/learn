@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+.wrap1{
+    width: 200px;
+    height: 200px;
+    padding:50px;
+    border:1px solid green;
+    background-image: url(background_position.png);
+    background-repeat: no-repeat;
+    background-position: 10%;
+}
+</style>
+<body>
+<div>所有结论在safari  9.1 (11601.5.17.1)下测试得出</div>
+<div style="white-space: pre;">
+background百分比计算方式
+background-postion:x y;
+x：{容器(container)的width+padding—背景图片的宽度}*x百分比，正数向右移动，负数向左移动，超出的部分隐藏
+y：{容器(container)的height+padding—背景图片的高度}*y百分比，正数向下移动，负数向上移动，超出的部分隐藏
+当容器高度（宽度）等于background-image高度的时候，根据公式，对高度（宽度）的百分比设定就不起作用了，容器内部会铺满整个图片，使用px单位还是可以移动图片位置
+</div>
+<div class="wrap1"></div>
+<div></div>
+</body>
+</html>

@@ -23,4 +23,5 @@ em {
 }
 .illustration {
 	list-style-type: none;
+	white-space: pre-line;
 }
