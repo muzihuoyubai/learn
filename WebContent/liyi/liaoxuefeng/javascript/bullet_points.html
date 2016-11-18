@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"  href="../../css/bullte_points.css">
+<title>bullet points</title>
+</head>
+<body>
+	<ul>
+		<li>==和===</li>
+		<li class="illustration">==比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；
+			===比较，它不会自动转换数据类型，如果数据类型不一致，返回false，如果一致，再比较。
+			由于JavaScript这个设计缺陷，不要使用==比较，始终坚持使用===比较。
+		</li>
+		<li>NaN这个特殊的Number与所有其他值都不相等，包括它自己：NaN === NaN; // false</li>
+		<li>唯一能判断NaN的方法是通过isNaN()函数：isNaN(NaN); // true</li>
+		<li>JavaScript的设计者希望用null表示一个空的值，而undefined表示值未定义。
+			事实证明，这并没有什么卵用，区分两者的意义不大。大多数情况下，我们都应该用null。
+			undefined仅仅在判断函数参数是否传递的情况下有用。</li>
+		<li>不用var申明的变量会被视为全局变量，为了避免这一缺陷，所有的JavaScript代码都应该使用strict模式。</li>
+		<li>启用strict模式的方法是在JavaScript代码的第一行写上：'use strict';</li>
+		<li>使用``括起来可以传多行字符串（键盘1左边的按键）ES6</li>
+		<li>字符串操作</li>
+		<li class="illustration">var s = 'hello,world';
+			s.indexOf('world'); // 返回6 
+			s.indexOf('World'); // 没有找到指定的子串，返回-1
+			var s = 'hello,world'
+			s.substring(0, 5); // 从索引0开始到5（不包括5），返回'hello'
+			s.substring(6); // 从索引7开始到结束，返回'world'
+		</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
