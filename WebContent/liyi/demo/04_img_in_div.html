@@ -1,0 +1,118 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+html, body {
+	margin: 0;
+	padding: 0; width : 100%;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+}
+
+body img {
+	display: block;
+	top: 50%;
+	position: absolute;
+	width: 100%;
+	height: auto;
+	transform: translateY(-50%);
+}
+/* body img {
+	height:100%;
+	width:auto;
+	border: 1px solid red;
+} */
+/* 页面可见区域高度大于或等于宽度*/
+@media screen and (orientation:portrait) { /* body img {
+		height:100%;
+		width:auto;
+		border: 1px solid red;
+	} */
+	/* body img {
+		display:block;
+		top:50%;
+		position:absolute;
+		width:100%;
+		height:auto;
+		transform: translateY(-50%);
+	} */
+}
+</style>
+</head>
+<body>
+<img src="test.jpg">
+	<img src="test2.png">
+	<div><img src="test3.png"></div>
+	<div><img src="test.jpg"></div>
+</body>
+<script>
+</script>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+body div {
+	height: 100%;
+	width: 100%;
+	display:table-cell;
+	border:1px solid red;
+}
+body img {
+	height:100%;
+	width:auto;
+} 
+/* 页面可见区域高度大于或等于宽度*/
+@media screen and (orientation:portrait) { /* body img {
+		height:100%;
+		width:auto;
+		border: 1px solid red;
+	} */
+	/* body img {
+		display:block;
+		top:50%;
+		position:absolute;
+		width:100%;
+		height:auto;
+		transform: translateY(-50%);
+	} */
+}
+</style>
+</head>
+<body>
+<!-- <img src="test.jpg"> -->
+	<div><img src="test2.png"></div>
+	<!-- <div><img src="test3.png"></div>
+	<div><img src="test.jpg"></div> -->
+</body>
+<script>
+</script>
+</html>

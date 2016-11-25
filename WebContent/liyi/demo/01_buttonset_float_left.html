@@ -47,24 +47,46 @@ div {
 	<br>
 	<button id="get_checked_name">获取checked的元素</button>
 	<div id="message"></div>
+	<span id="list6">
+		<input type="radio" id="list6_1" name="list_6" value="1"><label for="list6_1">list6_1</label>
+		<input type="radio" id="list6_2" name="list_6" value="2"><label for="list6_2">list6_2</label>
+		<input type="radio" id="list6_3" name="list_6" value="3"><label for="list6_3">list6_3</label>
+	</span>
+	<button id="test">取消button set的选中</button>
 </body>
 <script type="text/javascript" src="../jquery-ui-1.12.1/external/jquery/jquery.js"></script>
 <script type="text/javascript" src="../jquery-ui-1.12.1/jquery-ui.js"></script>
 <script>
-$(function(){
+
+
+$(function() {
+   
     $("#list1").buttonset();
     $("#list2 input").button();
     $("#list2").buttonset();
     $("#list3").buttonset().find("input").button();
     $("#list4 input").button();
     $("#list5").buttonset();
+    $("#list6").buttonset();
     $("#get_checked_name").button().click(function() {
-            var nameStr = ""
-            $("input:checked").each(function() {
-                nameStr += $(this).attr("name") + "_" + $(this).val() + "  ";
-            })
-            $("#message").text(nameStr);
-        });
+        var nameStr = ""
+        $("input:checked").each(function() {
+            nameStr += $(this).attr("name") + "_" + $(this).val() + "  ";
+        })
+        $("#message").text(nameStr);
     });
+    var selected = "";
+    $("#list6").on("click", "[name='list_6']", function() {
+        if (selected === $(this).val()) {
+            $("[name='list_6']:checked").prop("checked", false).button("refresh");
+            selected = "";
+        } else {
+            selected = $(this).val();
+        }
+    });
+    $("#test").click(function() {
+        $("[name='list_6']:checked").prop("checked", false).button("refresh");
+    });
+});
 </script>
 </html>

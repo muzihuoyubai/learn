@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+</head>
+<body>
+	<div></div>
+</body>
+<script>
+
+function a(){
+	console.log('a')
+}
+	
+function b(){
+	console.log('b')
+}
+
+//要传两个函数 一个正确时执行的函数，一个错误时执行的函数
+new Promise(function(a,b){
+    console.log('Promise');
+    a();
+}).then(function(){
+    console.log('then');
+}).catch(function(){
+    console.log('catch');
+});
+
+
+/* $(function(){
+   $("div").html("<script>alert('123')<\/script>"); 
+}); */
+</script>
+</html>
