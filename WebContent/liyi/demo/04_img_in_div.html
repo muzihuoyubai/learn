@@ -56,7 +56,7 @@ body img {
 <script>
 </script>
 </html> -->
-
+<!-- 
 
 <!DOCTYPE html>
 <html>
@@ -90,7 +90,7 @@ body img {
 	height:100%;
 	width:auto;
 } 
-/* 页面可见区域高度大于或等于宽度*/
+/* /* 页面可见区域高度大于或等于宽度*/
 @media screen and (orientation:portrait) { /* body img {
 		height:100%;
 		width:auto;
@@ -104,15 +104,55 @@ body img {
 		height:auto;
 		transform: translateY(-50%);
 	} */
+} */
+</style>
+</head>
+<body>
+<img src="test.jpg">
+	<div><img src="test2.png"></div>
+	<div><img src="test3.png"></div>
+	<div><img src="test.jpg"></div>
+</body>
+<script>
+</script>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+}
+
+body div {
+	height: 100%;
+	width: 100%;
+	border: 1px solid red;
+}
+.mysec {
+	background-image: url('test2.png'); /*图片地址*/
+	background-origin: content; /*从content区域开始显示背景*/
+	background-position: 50% 50%; /*图片上下左右居中*/
+	background-size: contain; /*保持图像本身的宽高比例，将图片缩放到宽度或高度正好适应定义背景的区域*/
+	background-repeat: no-repeat; /*图像不重复显示*/
 }
 </style>
 </head>
 <body>
-<!-- <img src="test.jpg"> -->
-	<div><img src="test2.png"></div>
-	<!-- <div><img src="test3.png"></div>
-	<div><img src="test.jpg"></div> -->
+	<div class="mysec"></div>
 </body>
 <script>
 </script>
 </html>
+
